@@ -4,16 +4,17 @@ Production-ready retrieval-augmented generation platform for enterprise knowledg
 
 ## Features
 
-- Document ingestion pipeline
-- Text chunking and metadata tracking
-- TF-IDF based retrieval baseline
+- Document ingestion and chunking pipeline
+- Metadata-aware chunk schema
+- TF-IDF retrieval baseline
 - Citation-backed answer generation
-- FastAPI search and answer API
-- CLI workflows for ingest/search/demo
+- FastAPI answer API
+- CLI workflows for asking questions and demos
 - Local JSON knowledge store
 - Docker and Docker Compose deployment
 - GitHub Actions CI
 - Pytest test suite
+- Architecture and deployment documentation
 
 ## Quickstart
 
@@ -33,8 +34,20 @@ curl -X POST http://localhost:8000/answer \
   -d @sample_query.json
 ```
 
+## Docker
+
+```bash
+docker-compose up --build
+```
+
+## Docs
+
+- `ARCHITECTURE.md`
+- `DEPLOYMENT.md`
+- `sample_query.json`
+
 ## Portfolio Highlights
 
 - Enterprise-style RAG architecture
 - Retrieval, citations, APIs, CLI, Docker, and CI
-- Strong foundation for vector databases, LLM orchestration, and production knowledge systems
+- Clear foundation for vector databases, LLM orchestration, hybrid retrieval, permissions, and production knowledge systems
