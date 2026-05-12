@@ -1,0 +1,23 @@
+[project]
+name = "enterprise-rag-knowledge-platform"
+version = "0.1.0"
+description = "Production-ready enterprise RAG knowledge platform"
+requires-python = ">=3.10"
+dependencies = ["fastapi", "uvicorn[standard]", "pydantic", "scikit-learn", "typer", "rich"]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx", "ruff"]
+
+[project.scripts]
+ragctl = "enterprise_rag.cli:app"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
