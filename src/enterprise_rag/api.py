@@ -1,24 +1,18 @@
 from fastapi import FastAPI
 
-from enterprise_rag.answering import AnswerEngine
-from enterprise_rag.chunking import chunk_document
-from enterprise_rag.sample_data import sample_documents
-from enterprise_rag.schemas import AnswerRequest, AnswerResponse
+from enterprise_rag.schemas import AnswerRequest, AnswerResponse, HealthResponse
+from enterprise_rag.service import RagKnowledgeService
 
-app = FastAPI(title='Enterprise RAG Knowledge Platform')
+app = FastAPI(title='Enterprise RAG Knowledge Platform', version='0.2.0')
 
-_chunks = []
-for document in sample_documents():
-    _chunks.extend(chunk_document(document, chunk_size=80))
-
-_engine = AnswerEngine(_chunks)
+_service = RagKnowledgeService()
 
 
-@app.get('/health')
-def health() -> dict:
-    return {'status': 'ok'}
+@app.get('/health', response_model=HealthResponse)
+def health() -> HealthResponse:
+    return _service.health()
 
 
 @app.post('/answer', response_model=AnswerResponse)
 def answer(request: AnswerRequest) -> AnswerResponse:
-    return _engine.answer(request.query, top_k=request.top_k)
+    return _service.answer(request)
