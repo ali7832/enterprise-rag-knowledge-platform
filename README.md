@@ -1,20 +1,25 @@
 # Enterprise RAG Knowledge Platform
 
-Production-ready retrieval-augmented generation platform for enterprise knowledge search, citation-backed answers, document ingestion, and API-based retrieval workflows.
+Deployable enterprise knowledge service for retrieval-augmented answering, metadata-aware citations, query traceability, grounding checks, and API-based knowledge access.
 
-## Features
+## Core Capabilities
 
 - Document ingestion and chunking pipeline
-- Metadata-aware chunk schema
-- TF-IDF retrieval baseline
+- Metadata-aware document and chunk schemas
+- TF-IDF retrieval baseline for local/demo deployments
 - Citation-backed answer generation
-- FastAPI answer API
-- CLI workflows for asking questions and demos
-- Local JSON knowledge store
+- Query IDs for traceability
+- Retriever version metadata in every response
+- Grounding signal based on retrieved evidence
+- Query latency measurement
+- JSONL query trace stream for local observability
+- FastAPI `/answer` API
+- CLI workflows for demos and queries
+- Runtime configuration through environment variables
 - Docker and Docker Compose deployment
 - GitHub Actions CI
-- Pytest test suite
-- Architecture and deployment documentation
+- Pytest coverage
+- Operations runbook and architecture decision record
 
 ## Quickstart
 
@@ -40,14 +45,23 @@ curl -X POST http://localhost:8000/answer \
 docker-compose up --build
 ```
 
-## Docs
+## Runtime Configuration
+
+See `.env.example` for environment, retriever version, chunk size, grounding threshold, and query trace settings.
+
+## Documentation
 
 - `ARCHITECTURE.md`
 - `DEPLOYMENT.md`
+- `OPERATIONS.md`
+- `docs/adr-001-rag-service-layer.md`
 - `sample_query.json`
 
-## Portfolio Highlights
+## Production Roadmap
 
-- Enterprise-style RAG architecture
-- Retrieval, citations, APIs, CLI, Docker, and CI
-- Clear foundation for vector databases, LLM orchestration, hybrid retrieval, permissions, and production knowledge systems
+- Vector database support
+- Hybrid dense and sparse retrieval
+- Tenant-aware document permissions
+- LLM answer synthesis with guardrails
+- Retrieval evaluation dashboards
+- Source refresh jobs and ingestion workers
