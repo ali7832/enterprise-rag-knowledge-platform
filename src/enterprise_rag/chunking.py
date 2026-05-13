@@ -15,6 +15,8 @@ def chunk_document(document: Document, chunk_size: int = 500) -> list[Chunk]:
                 doc_id=document.doc_id,
                 title=document.title,
                 text=text,
+                source=document.source,
+                access_level=document.access_level,
             )
         )
 
