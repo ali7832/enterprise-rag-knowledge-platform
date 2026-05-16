@@ -2,6 +2,12 @@
 
 Deployable enterprise knowledge service for retrieval-augmented answering, metadata-aware citations, query traceability, grounding checks, API-based knowledge access, and a premium multi-page React knowledge operations dashboard.
 
+## Product Demo Video
+
+
+https://github.com/user-attachments/assets/09ffc4db-404d-4719-ac88-216ed9b0b5c7
+
+
 ## Core Capabilities
 
 - Document ingestion and chunking pipeline
