@@ -1,6 +1,6 @@
 # Enterprise RAG Knowledge Platform
 
-Deployable enterprise knowledge service for retrieval-augmented answering, metadata-aware citations, query traceability, grounding checks, and API-based knowledge access.
+Deployable enterprise knowledge service for retrieval-augmented answering, metadata-aware citations, query traceability, grounding checks, API-based knowledge access, and a premium multi-page React knowledge operations dashboard.
 
 ## Core Capabilities
 
@@ -20,6 +20,7 @@ Deployable enterprise knowledge service for retrieval-augmented answering, metad
 - GitHub Actions CI
 - Pytest coverage
 - Operations runbook and architecture decision record
+- Multi-page React/Vite enterprise RAG frontend
 
 ## Quickstart
 
@@ -29,6 +30,30 @@ ragctl demo
 uvicorn enterprise_rag.api:app --reload
 pytest -q
 ```
+
+## Frontend KnowledgeCore AI Dashboard
+
+The `frontend/` directory contains a premium React/Vite command center for enterprise knowledge teams, AI platform engineers, and business users.
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+Frontend pages:
+
+- Overview: indexed documents, grounded answer rate, latency, query traces, retrieval charts
+- Ask Knowledge: interactive question workspace with grounded answer fallback
+- Ingestion: upload, chunk, index, trace, and source health workflow view
+- Citation Review: evidence table with retrieved documents and confidence scores
+- Grounding Monitor: quality scorecards, grounding thresholds, and guardrail signals
+- Query Traces: traceable query history with chunks, groundedness, and latency
+- Admin: retriever version, chunk size, threshold, trace stream, and access controls
+
+The UI attempts to call `/answer` and falls back to demo RAG intelligence when the backend is offline.
 
 ## API
 
